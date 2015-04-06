@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package quickstarts.client;
+package com.avnet.test;
 
 import java.util.Hashtable;
 
@@ -29,10 +29,8 @@ import quickstarts.ServiceAccess;
  *
  * @author <a href="mailto:wfink@redhat.com">Wolf-Dieter Fink</a>
  */
-//@Stateless
-//@Startup
 public class SingletonServiceClient {
-	 /**
+    /**
      * Proxy of the SLSB
      */
     private final ServiceAccess accessBean;
@@ -46,8 +44,8 @@ public class SingletonServiceClient {
     private SingletonServiceClient() throws NamingException {
         final Hashtable<String, String> jndiProperties = new Hashtable<String, String>();
         jndiProperties.put(Context.URL_PKG_PREFIXES, "org.jboss.ejb.client.naming");
-        final Context context = new InitialContext();
-        String lookupName = "java:global/ClusterEar/cluster-ejb/ServiceAccessBean!quickstarts.ServiceAccess";// + ServiceAccess.class.getName();
+        final Context context = new InitialContext(jndiProperties);
+        String lookupName = "ejb:/jboss-cluster-ha-singleton-service/ServiceAccessBean!" + ServiceAccess.class.getName();
         System.out.println("Lookup Bean name is " + lookupName);
         accessBean = (ServiceAccess) context.lookup(lookupName);
     }

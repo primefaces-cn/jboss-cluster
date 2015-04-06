@@ -16,13 +16,27 @@
  */
 package quickstarts;
 
+import javax.ejb.ScheduleExpression;
+
 /**
  * @author <a href="mailto:wfink@redhat.com">Wolf-Dieter Fink</a>
  */
 public interface Scheduler {
 
-    void initialize(String info);
+	void initialize(String info);
 
-    void stop();
+	void stop();
+
+	/**
+	 * @author jason
+	 * @param timerName
+	 */
+	void stop(String timerName);
+
+	/**
+	 * @author jason
+	 * @param timerName
+	 */
+	void update(String timerName,ScheduleExpression se);
 
 }
