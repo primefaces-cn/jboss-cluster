@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="WebQuoteEar">
+        <wb-resource deploy-path="/" source-path="/webquote" tag="defaultRootSource"/>
+        <dependent-module archiveName="cluster-ejb.jar" deploy-path="/" handle="module:/resource/cluster-ejb/cluster-ejb">
+            <dependent-object/>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="cluster-web.war" deploy-path="/" handle="module:/resource/cluster-web/cluster-web">
+            <dependent-object/>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+    </wb-module>
+</project-modules>
